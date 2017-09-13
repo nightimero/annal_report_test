@@ -2,6 +2,7 @@ import time
 from pywinauto.application import Application
 
 app = Application().Start(cmd_line=u'"C:\\Program Files (x86)\\Spark\\Spark.exe"')
+app.Notepad.TypeKeys(u'fsdf')
 time.sleep(10)
 sunawtframe = app.test2
 sunawtframe.Wait('ready')
