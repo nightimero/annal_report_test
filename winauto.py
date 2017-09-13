@@ -15,3 +15,8 @@ sunawtframe3 = app.test2
 sunawtframe3.ClickInput()
 
 #todo:通过句柄连接已打开应用。
+
+#todo:通过句柄将应用置顶。
+
+#todo:通过句柄将应用最小化，最大化。
+
