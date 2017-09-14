@@ -3,6 +3,7 @@ from case import *
 from util import *
 import re
 from selenium import  webdriver
+import threading
 
 
 class AiChat(object):
@@ -40,12 +41,36 @@ class AiChat(object):
         exclude_test= range(5,len(sorted_funcs)+1)    #停用什么类型证书节点可用用例
         test_suit = [ i for j,i in enumerate(sorted_funcs,1) if j not in exclude_test]
         self.run_test(test_suit)
+
+    def run_muti_test(self,test_suit):
+        self.aidriver.open_chat_page()
+        print u'开始休眠10s'
+        time.sleep(10)
+        self.run_test(test_suit)
 #Todo: 使用进程池，运行5个进程，每个进程开始初始化，并分别执行每个测试用例。
 
 if __name__ == '__main__':
-    aichat = AiChat()
+    # case_num = len(AiChat.get_sorted_case())
+    case_num =3
+    chat_list=[]
+    thread_list = []
+    #todo: 各种方法，都没有同事启动来运行。是怎么回事呢？ 尝试在run_muti_test添加休眠时间
+    # for i in range(case_num):
+    #     chat_list.append(AiChat())
+    #     #这样传入的是函数的调用，会导致线程不会并行执行，所以需要使用args参数。
+    #     # thread_list.append(threading.Thread(target=chat_list[i].run_muti_test(['case%s'%(i+1)])))
+    #     # thread_list.append(threading.Thread(target=chat_list[i].run_muti_test,args=(['case%s'%(i+1)],)))
+    #     #使用函数还是会这样。
+    #     thread_list.append(threading.Thread(target=chat_list[i].main_test))
+    #     thread_list[i].start()
+    #     thread_list[i].join()
 
-    for i in range(3):
-        print u'*********开始第{}个循环************'.format(i+1)
-        # aichat.main_test()
-        aichat.suit_test()
+# ==========================================================
+    #先new了对象也不行。
+    for i in range(case_num):
+        chat_list.append(AiChat())
+
+    for i in range(case_num):
+        thread_list.append(threading.Thread(target=chat_list[i].main_test))
+        thread_list[i].start()
+        thread_list[i].join()
