@@ -6,6 +6,7 @@ Topic: 协程
 """
 
 #todo： https://www.xncoding.com/2015/12/21/python/nio.html
+# todo： 深挖 yield 关键字
 import time
 def consumer():
     r = ''
