@@ -23,7 +23,6 @@ b = my_thread()
 t1 = threading.Thread(target=a.thread_run,name='Thread_1',args=(['url_1','url_2','url_3'],))
 t2 = threading.Thread(target=b.thread_run,name='Thread_2',args=(['url_4',"url_5",'url_6'],))
 
-t1.start()
 t2.start()
 t1.join()
 t2.join()
