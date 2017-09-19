@@ -8,6 +8,7 @@ Topic: 协程
 #https://www.xncoding.com/2015/12/21/python/nio.html
 # 使用函数().next启动迭代器。
 # yield 前面是send入参，后面是返回值。
+# todo： 在工作机器 添加 .ingnore 插件，使用文件右键ignore 功能。
 #todo： 入参可以是数组吗？
 #todo： 一定要写出来。总结。as a teacher ，speecher 就是复习
 
