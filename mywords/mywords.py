@@ -30,7 +30,7 @@ import sys
 #     writer.writeheader()
 #     for line in d:
 #         writer.writerow(line,)
-
+start_time = time.time()
 def convert(x):
     try:
         return x.astype(int)
@@ -56,8 +56,10 @@ for row in range(int(rows)):
     df[u'实际输出'][row] =  str(res_dict["Result"]["Features"]["Abuse"])
     if df[u'实际输出'][row] != df[u'预期输出'][row]:
         print u'第%s行错误'% row
-        df[u'是否错误'][row] = u'错误'
+        df[u'结果'][row] = u'错误'
 df = df.apply(convert)
 print df.dtypes
-df.to_csv('words.csv',encoding='gb18030',index=False,sep=',')
+df.to_csv('words3.csv',encoding='gb18030',index=False,sep=',')
 
+end_time = time.time()
+print '===========total_time is %s==========='%(end_time - start_time)
