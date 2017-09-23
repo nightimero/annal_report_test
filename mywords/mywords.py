@@ -18,7 +18,6 @@ import sys
 #     # reader = csv.reader(f)
 #     row_dict =[]
 #     for row in reader:
-#         #todo: list 不能decode
 #         print row
 #         # try: print [x.decode('gb18030') for x in row] ;result: [u'\u8f93\u5165', u'\u9884\u671f\u8f93\u51fa', u'\u5b9e\u9645\u8f93\u51fa']
 #         row_dict.append(json.dumps(row,encoding='gb18030',ensure_ascii=False))

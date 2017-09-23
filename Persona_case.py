@@ -158,12 +158,36 @@ class Cases(object):
         self.aidriver.send(u'我的血型是什么？')
         self.aidriver.checkin([u'您的血型应该是AB型血',u'您是AB型血。',u'我记得您应该是AB型血'])
 
-# todo: 打补丁
+# task: 打补丁  :result： 因为aichat和aichat.case中都包含self.aidriver，恰好使用aichat.cases.case10 = types.MethodType(case10,aichat)和
+# aichat.cases.case10 = types.MethodType(case10,aichat.cases)都可以用。但是按照标准，其实很简单，方法在哪个类中，就传入哪个类的实例。
+    # 所以这里应该是aichat.cases.case10 = types.MethodType(case10,aichat.cases)
+    #这里绑定的是实例方法，不影响其他实例类。
     #应该要参考这个项目打补丁 http://python.jobbole.com/82357/
 #TypeError: case7() takes exactly 1 argument (0 given)
 #case7 在运行后添加，无法生效。aichat.cases.case7 = case7 。 估计打补丁的方式不对。
-    def case7(self):
+# aichat.cases.case17 = case17(AiChat().cases) 这样的方式也不可以。相当于运行了函数，返回结果。
+    def case17(self):
         print 'test'
+
+    def case26(self):
+        '''
+        一次性输入所有属性。
+        '''
+        self.aidriver.send(random.choice([u'我是陈成,性别男，我今年18岁，体重110斤，身高1米5，血型是AB型血型',]))
+        self.aidriver.send(random.choice([u'我是谁',]))
+        self.aidriver.check(u'陈成您好，请问有什么可以帮您？')
+        self.aidriver.send(u'我的性别是什么？')
+        self.aidriver.checkin([u'先生您好，请问有什么可以帮您？',])
+        self.aidriver.send(u'我今年多大了？')
+        self.aidriver.checkin([u'我掐指一算，您今年应该18岁了。', u'您好，我猜您今年18岁了吧。', ])
+        self.aidriver.send(u'我有多高呢？')
+        self.aidriver.checkin([u'我猜您身高应该是150厘米。',u'您身高150厘米。'])
+        self.aidriver.send(u'我的体重是多少？')
+        self.aidriver.checkin([u'我记得您的体重应该是55kg',u'您的体重是55kg。'])
+        self.aidriver.send(u'我的血型是什么？')
+        self.aidriver.checkin([u'您的血型应该是AB型血',u'您是AB型血。',u'我记得您应该是AB型血'])
+
+
 
 
     def case23(self):
@@ -174,5 +198,5 @@ class Cases(object):
         self.aidriver.send(u'3.00%')
         self.aidriver.send(u'1年')
         self.aidriver.send(u'五万')
-        self.aidriver.check(u'预期错误，aiknown开小差了')
+        self.aidriver.check(u'2017年同心众盈网银专享保本型第24期\n3%\n年化收益率\n12个月\n理财期限\n点击查看详情')
 

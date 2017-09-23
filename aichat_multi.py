@@ -54,7 +54,7 @@ if __name__ == '__main__':
     case_num =3
     chat_list=[]
     thread_list = []
-    #todo: 各种方法，都没有同事启动来运行。是怎么回事呢？ 尝试在run_muti_test添加休眠时间
+    #todo: 各种方法，都没有同时启动来运行。是怎么回事呢？ 尝试在run_muti_test添加休眠时间
     # for i in range(case_num):
     #     chat_list.append(AiChat())
     #     #这样传入的是函数的调用，会导致线程不会并行执行，所以需要使用args参数。
