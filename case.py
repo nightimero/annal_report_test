@@ -2,6 +2,8 @@
 from config import *
 import random
 
+
+#todo： 混合多个场景的case在一个debug中运行。
 class Cases(object):
     def __init__(self,aidriver):
         self.aidriver = aidriver

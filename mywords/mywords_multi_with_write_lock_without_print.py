@@ -90,7 +90,7 @@ def collect_data(request,data):
     data.to_csv('words2.csv',encoding='gb18030',index=False,sep=',')
 lock = threading.Lock()
 rows = df.shape[0]
-PROCESS = 10
+PROCESS = 2
 pro_list =[]
 step = rows / PROCESS
 for i in range(PROCESS):

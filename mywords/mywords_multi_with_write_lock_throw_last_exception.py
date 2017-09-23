@@ -32,11 +32,15 @@ def retry(num_retries=1):
             #为了方便看抛出什么错误定义一个错误变量
             last_exception =None
             #循环执行包装的函数
-            for _ in range(num_retries):
+            for i in range(num_retries):
                 try:
                     #如果没有错误就返回包装的函数，这样跳出循环
                     return func(*args, **kwargs)
                 except Exception as e:
+                    if i < num_retries - 1:
+                        print u'***第%s次捕捉到异常' % i
+                    else:
+                        raise Exception('***the last excepthon','i')
                     #捕捉到错误不要return，不然就不会循环了
                     last_exception = e
             #如果要看抛出错误就可以抛出
@@ -57,16 +61,18 @@ def send_request(data,row):
     req = urllib2.Request(requrl, headers=headers, data=post_body)
     res = urllib2.urlopen(req)
     res_dict = json.loads(res.read())
-    print '=================res_dict is %s' % res_dict
-    print '=================Abuse is %s' % str(res_dict["Result"]["Features"]["Abuse"])
+    # print '=================res_dict is %s' % res_dict
+    # print '=================Abuse is %s' % str(res_dict["Result"]["Features"]["Abuse"])
     return res_dict
+
+#todo: threadpool 调用函数中给线程命名，并打印线程的名称
 def exam_dirty_words(pro_list):
     data = pro_list['df']
-    print '=================data is %s' % data
+    # print '=================data is %s' % data
     start = int(pro_list['start'])
     end = int(pro_list['end'])
-    print '=================start is %s'% start
-    print '=================end is %s'% end
+    # print '=================start is %s'% start
+    # print '=================end is %s'% end
     for row in range(start,end):
         res_dict = send_request(data,row)
         lock.acquire()
@@ -79,17 +85,24 @@ def exam_dirty_words(pro_list):
                 data[u'结果'][row] = u'正确'
         finally:
             lock.release()
-    print data
+    # print data
     return data
 
-df = pd.read_csv('words.csv',encoding='gb18030',sep=',')
+df = pd.read_csv('words_little.csv',encoding='gb18030',sep=',')
 
 
 def collect_data(request,data):
-    data.to_csv('words2.csv',encoding='gb18030',index=False,sep=',')
+    try:
+        data.to_csv('words2.csv',encoding='gb18030',index=False,sep=',')
+    except IOError:
+        print u'无法写入文件，请检查'
+    else:
+        print u'写入文件成功'
+    finally:
+        print u'执行程序完毕。'
 lock = threading.Lock()
 rows = df.shape[0]
-PROCESS = 10
+PROCESS = 200
 pro_list =[]
 step = rows / PROCESS
 for i in range(PROCESS):
