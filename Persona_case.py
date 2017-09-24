@@ -166,6 +166,25 @@ class Cases(object):
 #TypeError: case7() takes exactly 1 argument (0 given)
 #case7 在运行后添加，无法生效。aichat.cases.case7 = case7 。 估计打补丁的方式不对。
 # aichat.cases.case17 = case17(AiChat().cases) 这样的方式也不可以。相当于运行了函数，返回结果。
+
+    #
+    # import types
+    #
+    # class Person(object):
+    #     pass
+    #
+    # def say(self):
+    #     print 'hello, world'
+    #
+    # p = Person()
+    # 应该是写作 p.say = types.MethodType(say, p, Person)  Person 是不必要的参数，因为函数只需两个参数，所以传入了，没有报错正常执行。
+    # p.say = types.MethodType(say, p, Person)
+    # p.say()
+    #
+
+
+
+
     def case17(self):
         print 'test'
 
@@ -186,7 +205,6 @@ class Cases(object):
         self.aidriver.checkin([u'我记得您的体重应该是55kg',u'您的体重是55kg。'])
         self.aidriver.send(u'我的血型是什么？')
         self.aidriver.checkin([u'您的血型应该是AB型血',u'您是AB型血。',u'我记得您应该是AB型血'])
-
 
 
 

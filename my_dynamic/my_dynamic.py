@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+c
 #task: 掉用父类中被覆盖的方法
 #super 并不是父类的意思，super是一个类，返回mro的一个list https://laike9m.com/blog/li-jie-python-super,70/  print(d.__class__.__mro__)
 #深入： mro关系树 http://www.cnblogs.com/lovemo1314/archive/2011/05/03/2035005.html
