@@ -66,11 +66,21 @@ if __name__ == '__main__':
     #     thread_list[i].join()
 
 # ==========================================================
-    #先new了对象也不行。
-    for i in range(case_num):
-        chat_list.append(AiChat())
+    #先new了对象也不行。 这样的写法有问题，具体问题是怎么产生的呢？
+    # for i in range(case_num):
+    #     chat_list.append(AiChat())
+    #
+    # for i in range(case_num):
+    #     thread_list.append(threading.Thread(target=chat_list[i].main_test))
+    #     thread_list[i].start()
+    #     thread_list[i].join()
 
-    for i in range(case_num):
-        thread_list.append(threading.Thread(target=chat_list[i].main_test))
-        thread_list[i].start()
-        thread_list[i].join()
+    #这样是可以得。
+    a = AiChat()
+    b = AiChat()
+    t1 = threading.Thread(target=a.main_test,name='Thread_1',args=())
+    t2 = threading.Thread(target=b.main_test,name='Thread_2',args=())
+    t1.start()
+    t2.start()
+    t1.join()
+    t2.join()
