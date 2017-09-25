@@ -13,6 +13,13 @@ s1 = df[u'用户输入'].str.len()<=2
 df.drop(s1.where(s1==True).dropna().index,inplace=True)
 df.to_csv("D:\\test2.csv",encoding='gb18030')
 
+df_result = df.drop(df.index)
+words = [u'测试',u'顾客']
+for word in words:
+    df_result = df_result.append(df[df[u'用户输入'].str.contains(word)])
+df.to_csv("D:\\test3.csv",encoding='gb18030')
+
+
 # s1 = df[u'用户输入']
 # s2 = s1.str.contains(u'顾客')
 # s3 = s1.drop(s2.where(s2 == True).dropna().index)

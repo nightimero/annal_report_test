@@ -4,6 +4,11 @@ import time
 from config import *
 import random
 
+
+#todo: assert 后继续运行
+#todo：添加到jenkins上自动执行，返回结果打印到jenkins上
+#todo：打开聊天首页，图片无法加载，导致浏览器一直在加载。导致无法运行后续测试代码。
+
 class AiDriver(object):
     def __init__(self,driver):
         self.driver = driver
