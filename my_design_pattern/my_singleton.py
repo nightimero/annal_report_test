@@ -44,7 +44,7 @@ def singleton(cls):
 class MyClass(object):
     a = 1
 #使用元类 http://funhacks.net/2017/01/17/singleton/
-#https://www.google.com/search?q=python%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F&oq=python%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F&aqs=chrome..69i57j0l5.12515j0j7&sourceid=chrome&ie=UTF-8
-# https://www.google.com/search?q=python+%E6%9F%A5%E7%9C%8B+%E6%96%B9%E6%B3%95+%E6%9C%AC%E5%9C%B0%E5%8F%98%E9%87%8F&oq=python+%E6%9F%A5%E7%9C%8B+%E6%96%B9%E6%B3%95+%E6%9C%AC%E5%9C%B0%E5%8F%98%E9%87%8F&aqs=chrome..69i57.22849j0j7&sourceid=chrome&ie=UTF-8
+#https://www.google.com/search?q=python%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F&oq=python%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F
+# https://www.google.com/search?q=python+%E6%9F%A5%E7%9C%8B+%E6%96%B9%E6%B3%95+%E6%9C%AC%E5%9C%B0%E5%8F%98%E9%87%8F&oq=python+%E6%9F%A5%E7%9C%8B+%E6%96%B9%E6%B3%95+%E6%9C%AC%E5%9C%B0%E5%8F%98%E9%87%8F
 
 
