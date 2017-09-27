@@ -3,7 +3,12 @@
 import time
 from config import *
 import random
+import logging
 
+logging.basicConfig(level=logging.WARNING,
+                format='%(message)s',
+                filename='myapp.log',
+                filemode='w')
 
 #todo: assert 后继续运行
 #todo：添加到jenkins上自动执行，返回结果打印到jenkins上
@@ -49,5 +54,12 @@ class AiDriver(object):
         print u"$$$$$倒数第一个在范围内的答案是：   {}".format(result)
         assert result in content
 
+    def checkin_and_log(self,msg,content):
+        time.sleep(1)
+        result = self.driver.find_element_by_css_selector('div.chat-content-body > div:last-child').text
+        print u"$$$$$倒数第一个在范围内的答案是：   {}".format(result)
+        print u'结果为：{}'.format(result in content)
+        if not result in content:
+            logging.warning(msg)
     def reload_driver(self):
         self.driver.get("http://"+ip+"/html/chat.html?uid="+str(self.getuid()))
