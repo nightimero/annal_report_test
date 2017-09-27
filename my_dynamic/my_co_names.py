@@ -5,7 +5,9 @@
 a = 1
 
 def f(b):
-    c = a + b
+    d = 2
+    c = a + b + d
+    return c
 
 print(f.__code__.co_varnames)  # prints ('b', 'c')
 print(f.__code__.co_names)     # prints ('a',)

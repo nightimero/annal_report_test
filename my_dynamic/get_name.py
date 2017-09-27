@@ -4,6 +4,12 @@
 #在函数外部获取函数名称：
 
 # todo:不要使用可变对象作为函数默认值  http://cenalulu.github.io/python/default-mutable-arguments/
+# todo：获取函数中的变量（全局，本地，闭包）
+# todo：获取文件中的函数
+# todo：获取模块中的函数
+# todo：获取模块中的类
+# todo：获取类中的方法
+# todo：获取路径下的模块
 def get_name1(a=2):
     print a+1
     pass
@@ -16,8 +22,6 @@ print get_name1.func_code.co_name
 
 
 print get_name1.func_dict
-
-
 
 print get_name1.__code__.co_cellvars
 print get_name1.__dict__
