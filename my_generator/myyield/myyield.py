@@ -41,3 +41,4 @@ print isinstance(Fab,types.GeneratorType)
 print isinstance(fab(5),types.GeneratorType)
 
 #todo: 通过debug itchat 练习读源码。
+
