@@ -1,0 +1,80 @@
+Index: mywords/mywords_multi_re_request.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- mywords/mywords_multi_re_request.py	(revision 6d86a5bea11e67f5e7be08e97a2277295d55104f)
++++ mywords/mywords_multi_re_request.py	(revision )
+@@ -14,8 +14,8 @@
+ import threading
+ import threadpool
+ 
+-#todo: http://www.jianshu.com/p/afd9b3deb027
+-#todo: http://blog.csdn.net/onwer3/article/details/9238807
++# todo: http://www.jianshu.com/p/afd9b3deb027
++# todo: http://blog.csdn.net/onwer3/article/details/9238807
+ 
+ start_time = time.time()
+ def convert(x):
+@@ -24,10 +24,11 @@
+     except:
+         return x
+ 
+-#todo:     if int(data[u'实际输出'][row]) != int(data[u'预期输出'][row]):
++# todo: if int(data[u'实际输出'][row]) != int(data[u'预期输出'][row]):
+ # ValueError: cannot convert float NaN to integer
+ # 需要重新请求
+ 
++
+ def exam_dirty_words(pro_list):
+     data = pro_list['df']
+     print '=================data is %s' % data
+@@ -49,24 +50,24 @@
+         res_dict = json.loads(res.read())
+         print '=================res_dict is %s'% res_dict
+         print '=================Abuse is %s'% str(res_dict["Result"]["Features"]["Abuse"])
+-        data[u'实际输出'][row] =  str(res_dict["Result"]["Features"]["Abuse"])
++        data[u'实际输出'][row] = str(res_dict["Result"]["Features"]["Abuse"])
+         if int(data[u'实际输出'][row]) != int(data[u'预期输出'][row]):
+-            print u'第%s行错误'% row
++            print u'第%s行错误' % row
+             data[u'结果'][row] = u'错误'
+         else:
+             data[u'结果'][row] = u'正确'
+     print data
+     return data
+ 
+-df = pd.read_csv('words.csv',encoding='gb18030',sep=',')
++df = pd.read_csv('words.csv', encoding='gb18030', sep=',')
+ 
+ 
+-def collect_data(request,data):
+-    data.to_csv('words2.csv',encoding='gb18030',index=False,sep=',')
++def collect_data(data):
++    data.to_csv('words2.csv', encoding='gb18030', index=False, sep=',')
+ 
+ rows = df.shape[0]
+ PROCESS = 4
+-pro_list =[]
++pro_list = []
+ step = rows / PROCESS
+ for i in range(PROCESS):
+     start = i * step
+@@ -74,9 +75,9 @@
+         end = (i + 1) * step
+     else:
+         end = (i + 1) * step + rows % step
+-    pro_list.append(dict(zip(('df','start','end'),(df,start,end))))
++    pro_list.append(dict(zip(('df', 'start', 'end'), (df, start, end))))
+ pool = threadpool.ThreadPool(PROCESS)
+-requests = threadpool.makeRequests(exam_dirty_words,pro_list,collect_data)
++requests = threadpool.makeRequests(exam_dirty_words, pro_list, collect_data)
+ [pool.putRequest(req) for req in requests]
+ pool.wait()
+ 
+@@ -84,4 +85,4 @@
+ print df.dtypes
+ 
+ end_time = time.time()
+-print '===========total_time is %s==========='%(end_time - start_time)
++print '===========total_time is %s===========' % (end_time - start_time)

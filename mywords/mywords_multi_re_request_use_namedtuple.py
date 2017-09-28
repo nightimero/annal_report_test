@@ -10,6 +10,7 @@ import time
 import urllib2
 import json
 import pandas as pd
+from collections import namedtuple
 import multiprocessing
 import threading
 import threadpool
@@ -30,10 +31,10 @@ def convert(x):
 
 
 def exam_dirty_words(pro_list):
-    data = pro_list['df']
+    data = pro_list.df
     print '=================data is %s' % data
-    start = int(pro_list['start'])
-    end = int(pro_list['end'])
+    start = int(pro_list.start)
+    end = int(pro_list.end)
     print '=================start is %s'% start
     print '=================end is %s'% end
     for row in range(start,end):
@@ -59,15 +60,15 @@ def exam_dirty_words(pro_list):
     print data
     return data
 
-df = pd.read_csv('words.csv', encoding='gb18030', sep=',')
-
 
 def collect_data(data):
     data.to_csv('words2.csv', encoding='gb18030', index=False, sep=',')
 
+Testdata = namedtuple("Testdata", ["df", "start", "end"])
+df = pd.read_csv('words.csv', encoding='gb18030', sep=',')
 rows = df.shape[0]
 PROCESS = 4
-pro_list = []
+pro_list1 = []
 step = rows / PROCESS
 for i in range(PROCESS):
     start = i * step
@@ -75,9 +76,12 @@ for i in range(PROCESS):
         end = (i + 1) * step
     else:
         end = (i + 1) * step + rows % step
-    pro_list.append(dict(zip(('df', 'start', 'end'), (df, start, end))))
+    print Testdata(df, start, end)
+    pro_list1.append(Testdata(df, start, end))
 pool = threadpool.ThreadPool(PROCESS)
-requests = threadpool.makeRequests(exam_dirty_words, pro_list, collect_data)
+# todo: 为什么这里报错呢？ 用字典不会报错。用namedtuple就报错？
+# The truth value of a DataFrame is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all()
+requests = threadpool.makeRequests(exam_dirty_words, pro_list1, collect_data)
 [pool.putRequest(req) for req in requests]
 pool.wait()
 
