@@ -1,4 +1,6 @@
-# -*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-.
+# 参考： http://blog.bitfoc.us/?p=502
+import time
 def f():
     x = 'lo'
     y = 'li'
@@ -65,19 +67,19 @@ def f():
 
 # 第五次 为了打印出z, 会导致，先报错，后打印。
 
-def f():
-    x = 'lo'
-    y = 'li'
-    z = yield x
-    k = yield y
-    print z + k
-    yield x
-
-g = f()
-print g.next()
-print g.send('hello')
-print g.send('test')
-print g.next()
+# def f():
+#     x = 'lo'
+#     y = 'li'
+#     z = yield x
+#     k = yield y
+#     print z + k
+#     yield x
+#
+# g = f()
+# print g.next()
+# print g.send('hello')
+# print g.send('test')
+# print g.next()
 
 # Traceback (most recent call last):
 # lo
@@ -87,3 +89,55 @@ print g.next()
 # lo
 #     print g.next()
 # StopIteration
+
+
+# 第六次，next() 和 send(None) 等效
+# 话说仔细看这个例子还是挺凌乱的, 因为函数f明明内部只有两个yield, 却有三次send;
+# 而第一次send的实参值必须是None(否则挂), 并且最后一次send之后必然会出现一次StopIteration.
+def f():
+    x = 'lo'
+    y = 'li'
+    z = yield x
+    k = yield y
+    print z + k
+    yield x
+
+g = f()
+print g.send(None)
+print g.send('hello')
+print g.send('test')
+print g.send(None)
+
+
+
+# 第七次报错和打印不同步，是随机的。所以判断协程执行抛出异常的方式特别。使用time函数确定下。
+# Traceback (most recent call last):
+# lo
+#   File "C:/Users/shawn/PycharmProjects/annal_report_test/my_generator/myyield/first_and_second_send.py", line 107, in <module>
+# li
+#     print g.send(None)
+# hellotest
+# StopIteration
+# lo
+
+# 结果time.sleep完全没有起作用。
+def f():
+    x = 'lo'
+    time.sleep(2)
+    y = 'li'
+    time.sleep(2)
+    z = yield x
+    time.sleep(2)
+    k = yield y
+    time.sleep(2)
+    print z + k
+    time.sleep(2)
+    yield x
+
+g = f()
+print g.send(None)
+print g.send('hello')
+print g.send('test')
+print g.send(None)
+
+# todo： yield中time函数不起作用？ why？

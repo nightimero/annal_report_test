@@ -31,14 +31,14 @@ class AiDriver(object):
         return uid
 
     def send(self,content):
-        time.sleep(0.2)
+        time.sleep(0.3)
         self.driver.find_element_by_css_selector('div.chat-input-box > div > input[type="text"]').clear()
         print  u'发送信息：  {}'.format(content)
         self.driver.find_element_by_css_selector('div.chat-input-box > div > input[type="text"]').send_keys(content)
         self.driver.find_element_by_css_selector("div.chat-content-footer > div.chat-input-box > a.chat-input-send.fr").click()
 
     def check(self,content):
-        time.sleep(1)
+        time.sleep(1.5)
         result = self.driver.find_element_by_css_selector('div.chat-content-body > div:last-child').text
         print u"$$$$$倒数第一个返回答案是：   {}".format(result).replace('\n','\\n')
         assert result == content
@@ -49,13 +49,13 @@ class AiDriver(object):
         assert result == content
 
     def checkin(self,content):
-        time.sleep(1)
+        time.sleep(1.5)
         result = self.driver.find_element_by_css_selector('div.chat-content-body > div:last-child').text
         print u"$$$$$倒数第一个在范围内的答案是：   {}".format(result)
         assert result in content
 
     def checkin_and_log(self,msg,content):
-        time.sleep(1)
+        time.sleep(1.5)
         result = self.driver.find_element_by_css_selector('div.chat-content-body > div:last-child').text
         print u"$$$$$倒数第一个在范围内的答案是：   {}".format(result)
         print u'结果为：{}'.format(result in content)
