@@ -50,6 +50,9 @@ def get_var_default(var1,a = 1, b = 2, c = 3,args1=[1,2],kwargs1={'a':123}):
     print locals()
 get_var_default(1)  #{'a': 1, 'c': 3, 'b': 2}
 
+class Abc(object):
+    def get_var_default(var1, a=1, b=2, c=3, args1=[1, 2], kwargs1={'a': 123}):
+        print locals()
 
 
 
@@ -59,7 +62,8 @@ print get_var_default.func_defaults # (1, 2, 3, [1, 2], {'a': 123})
 print get_var_default.__defaults__  # (1, 2, 3, [1, 2], {'a': 123})
 # print get_var_default.  #在外部获取字典，像locals()在内部一样
 import inspect
-print inspect.getargspec(get_var_default)
+print "inspect.getargspec", inspect.getargspec(get_var_default)
+print "inspect.getargspec get func_var in class_method", inspect.getargspec(Abc().get_var_default)
 print type(inspect.getargspec(get_var_default))
 #namedtuple 如何取值
 print inspect.getargspec(get_var_default).varargs

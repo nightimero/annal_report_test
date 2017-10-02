@@ -12,7 +12,7 @@ class my_thread(object):
     # 为什么这里报错，但是奇怪的是，在aichat里面没有报错。
     # 估计是args传递参数错了。晕死，竟然是类中的方法，忘写self了。。。 def thread_run(urls):
     #def thread_run(urls):
-        print 'Current %s is  running...' % threading.currentThread().name
+        print 'Class is %s,Instance is %s, Current %s is  running...' % (threading.currentThread().name)
         for url in urls:
             print "%s ---->>> %s" %(threading.currentThread().name,url)
             time.sleep(random.random())
