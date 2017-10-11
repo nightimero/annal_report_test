@@ -10,6 +10,6 @@ list1 = [11, 44, 77]
 list2 = [22, 55, 88]
 list3 = [33, 55, 99]
 
-print map(add,list1,list2,list3)
+print map(add, list1, list2, list3)
 
-print [add(x, y , z)  for x in list1 for y in list2 for z in list3]
+print [add(x, y, z) for x in list1 for y in list2 for z in list3]
