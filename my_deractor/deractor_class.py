@@ -39,14 +39,16 @@ def decorator_with_params(arg_of_decorator):#这里是装饰器的参数
     #最终被返回的函数
     def newDecorator(func):
         print func
+        # func()  # 如果有这个函数就会运行两次。
         return func
     return newDecorator
 
 
 @decorator_with_params("deco_args")
 def foo3():
-    pass
-foo3()
+    print "hello world1"
+
+foo3()  # 因为有()，所以就是执行函数了。因为一路从底返回的是函数的引用。
 
 # 四、带参数装饰器– 包装带参数函数 #三个def
 def decorator_whith_params_and_func_args(arg_of_decorator):

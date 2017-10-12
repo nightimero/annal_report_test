@@ -41,3 +41,13 @@ class DD(AA):
 
 bb = BB()
 bb.say()
+
+
+# 这样写好奇怪，已经有装饰器了，还在用闭包
+# 可以看出外面的self和闭包函数的self是没有关系的。
+def func_level(self):
+    @AA(level='ERROR')
+    def say(self):
+        print 'hello tester'
+    return say
+
