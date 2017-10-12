@@ -15,10 +15,12 @@ print(f.__code__.co_names)     # prints ('a',)
 
 def g(b):
     d = 2
+    e = 3
     c = a + b + d
     print sys._getframe().f_code.co_name
     print sys._getframe().f_code.co_names
     print sys._getframe().f_code.co_varnames
+    print type(sys._getframe().f_code.co_varnames)
     return c
 
 g(3)

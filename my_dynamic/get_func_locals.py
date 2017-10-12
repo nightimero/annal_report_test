@@ -15,7 +15,32 @@ def case7():
     who_i_am_6 = [u'{}呢'.format(x) for x in (u'名字', u'姓名',)]
 
 
-print case7.__code__.co_name
 print case7.__code__.co_varnames
-print case7.__code__.co_cellvars
-print case7.__code__.co_nlocals
+# print getattr(case7,case7.__code__.co_varnames[1])  # 错误，函数没有这种属性。
+
+print dir(case7)
+
+
+
+# 解释： http://python.jobbole.com/81646/
+
+print dir(case7.__closure__)
+print dir(case7.func_closure)
+print dir(case7.func_dict)
+
+def foo():
+    a = 5
+    b = 6
+    def bar(ff=1):
+        ff = 12
+        return a
+    # http://blog.yxwang.me/2008/10/python-function/  这三个变量这样就清楚了。
+    print "cellvars:", bar.func_code.co_cellvars
+    print "freevars:", bar.func_code.co_freevars
+    print "varnames:", bar.func_code.co_varnames
+    return bar
+
+g = foo()
+print foo.func_code.co_freevars
+print foo.func_code.co_cellvars
+print foo.func_code.co_varnames
