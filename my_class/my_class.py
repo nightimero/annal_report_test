@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*- 
 class Abc(object):
-    def __init__(self,name):
+    def __init__(self, name):
         self.name = name
 
     def __repr__(self):
@@ -12,3 +12,9 @@ class Abc(object):
 
 print type(Abc('tester'))
 print Abc('tester')
+
+class AA(object):
+    def __init__(self):
+        print self.__class__.__name__
+
+aa = AA()
