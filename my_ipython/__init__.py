@@ -6,3 +6,7 @@
 
 # todo:ipython 中注入测试用例的函数，未完成。
 # ? 是reload_ext?
+
+# 用法：
+# %load_ext autoreload
+# %autoreload 2
