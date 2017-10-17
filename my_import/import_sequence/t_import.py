@@ -1,7 +1,4 @@
 # -*- coding:utf-8 -*-
-
-
-class A(object):
-    pass
-
+import sys
+import math
 print 'hello world'
