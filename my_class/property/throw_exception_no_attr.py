@@ -1,5 +1,7 @@
 # -*- coding:utf-8 -*-
 # 3.同时覆盖掉getattribute和getattr的时候，在getattribute中需要模仿原本的行为抛出AttributeError或者手动调用getattr
+# 下面例子里面的getattr方法根本不会被调用，因为原本的AttributeError被我们自行处理并未抛出，
+# 也没有手动调用getattr，所以访问not_existed的结果是None而不是default.
 
 
 class AboutAttr(object):
