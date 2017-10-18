@@ -19,6 +19,7 @@ class A(object):
 
     def __getattr__(self, name):
         print "get:", name
+        # 下面这句话就是废话。完全是画蛇添足，再去获取一次属性。
         return self.__dict__.get(name)
 
     def __setattr__(self, name, value):
@@ -44,12 +45,12 @@ a.x    # 访问已存在字段，仅被 __getattribute__ 捕获。
 a.y = 20   # 创建新的字段，被 __setattr__ 捕获。
 # set: y 20
 # attribute: __dict__
-
+print '==========a.z'
 a.z    # 访问不存在的字段，被 __getattr__ 捕获。
 # attribute: z
 # get: z
 # attribute: __dict__
-
+print '==========a.z'
 del a.y    # 删除字段被 __delattr__ 捕获。
 # del: y
 # attribute: __dict__
