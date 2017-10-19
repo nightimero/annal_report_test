@@ -3,7 +3,8 @@
 # map仅仅是做了列推导。[]做的是笛卡尔乘积。所以这里可以应用到不同的情况。
 # 参考：https://my.oschina.net/zyzzy/blog/115096
 
-def add(a,b,c):
+
+def add(a, b, c):
     return a * 10000 + b * 100 + c
 
 list1 = [11, 44, 77]
