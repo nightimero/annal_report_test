@@ -4,3 +4,4 @@
 # 不太好写，__import__和imp感觉都不好写。估计要试试 importlib ，或者 其他的模块了。比如 资料中的。
 
 # todo: http://python.jobbole.com/87492/  使用oslo.utils。
+# todo: import init import module。导致无限循环
