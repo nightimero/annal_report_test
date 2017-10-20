@@ -8,10 +8,12 @@ class A(object):
         print "A"
         super(A, self).__init__()  # 找到的是 B.__init__
 
+
 class B(object):
     def __init__(self):
         print "B"
         super(B, self).__init__()  # object.__init__
+
 
 class C(A, B):
     def __init__(self):
@@ -24,4 +26,3 @@ o = C()    # 对输出结果很意外？
 # B     # super(A, self).__init__() 实际是 B.__init__()。
 
 print C.__mro__  # (<class '__main__.C'>, <class '__main__.A'>, <class '__main__.B'>, <type 'object'>)
-

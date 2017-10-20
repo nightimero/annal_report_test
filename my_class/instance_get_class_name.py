@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 # do：打印实例名称。
+
+
 class Ab(object):
     def print_class_name(self):
         print self.__class__.__name__

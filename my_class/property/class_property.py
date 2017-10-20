@@ -13,6 +13,7 @@
 # 
 # 而 getattribute 连 dict 都会拦截，只能用基类的 getattribute 返回结果。
 
+
 class A(object):
     def __init__(self, x):
         self.x = x    # 会被 __setattr__ 捕获。

@@ -47,6 +47,7 @@ class Manager2(User):
     name = property(lambda self: self._name, lambda self, v: setattr(self, "_name", v))
     title = abstractproperty()
 
+
 class CXO(Manager2):
     def __init__(self, uid, name):
         Manager2.__init__(self, uid, name)

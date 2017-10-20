@@ -2,7 +2,6 @@
 # 子类可以继承静态方法和类方法
 
 
-
 class AA(object):
     @staticmethod
     def print_a():
@@ -11,6 +10,7 @@ class AA(object):
     @classmethod
     def print_b(cls):
         print cls.__name__
+
 
 class BB(AA):
     pass
