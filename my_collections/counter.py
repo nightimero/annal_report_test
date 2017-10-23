@@ -2,9 +2,10 @@
 from collections import Counter
 
 
+# 错误的写法。多打印了。
 def main():
     line = 'abbba'
-    mp={}
+    mp = {}
 
     for i in range(len(line)):
         if line[i] in mp:
@@ -13,7 +14,7 @@ def main():
             mp[line[i]] = 1
 
     for i in range(len(line)):
-      print line[i], ': ', mp[line[i]]
+        print line[i], ': ', mp[line[i]]
 
 
 main()
