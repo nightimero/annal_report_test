@@ -4,8 +4,11 @@ import pandas as pd
 import numpy as np
 import threadpool
 
-testdata = namedtuple("testdata", ["first", "second", "third"])
-no1 = testdata(1, 2, 3)
+# Testdata = namedtuple("Testdata", ["first", "second", "third"])
+# 这两种写法都可以。
+Testdata = namedtuple("Testdata", "first second third")
+
+no1 = Testdata(1, 2, 3)
 
 
 def pp(data):
@@ -16,7 +19,7 @@ dates = pd.date_range('20170928', periods=6)
 df = pd.DataFrame(np.random.randn(6, 4), index=dates, columns=list('ABCD'))
 # print df
 
-no2 = testdata(df, "test", 123)
+no2 = Testdata(df, "test", 123)
 print no2
 # a = [no2]
 a = [no1]
