@@ -4,8 +4,9 @@ import pandas as pd
 import numpy as np
 import threadpool
 
-Testdata = namedtuple("Testdata", ["first", "second", "third"])
-no1 = Testdata(1, 2, 3)
+testdata = namedtuple("testdata", ["first", "second", "third"])
+no1 = testdata(1, 2, 3)
+
 
 def pp(data):
     print data.first
@@ -14,9 +15,9 @@ def pp(data):
 dates = pd.date_range('20170928', periods=6)
 df = pd.DataFrame(np.random.randn(6, 4), index=dates, columns=list('ABCD'))
 # print df
-# todo: 熟悉logger，用不同的日志基本控制输出。
-no2 = Testdata(df,"test",123)
-# print no2
+
+no2 = testdata(df, "test", 123)
+print no2
 # a = [no2]
 a = [no1]
 
@@ -24,6 +25,6 @@ pool = threadpool.ThreadPool(2)
 # 这个函数就不支持namedtuple，需要字典。
 # result = request.callable(*request.args, **request.kwds)
 # TypeError: pp() argument after ** must be a mapping, not int
-requests = threadpool.makeRequests(pp,a)
+requests = threadpool.makeRequests(pp, a)
 [pool.putRequest(req) for req in requests]
 pool.wait()
