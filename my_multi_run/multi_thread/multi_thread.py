@@ -1,8 +1,11 @@
 # -*- coding:utf-8 -*-
 
-import time, threading
+import time
+import threading
 
 # 新线程执行的代码:
+
+
 def loop():
     print 'thread %s is running...' % threading.current_thread().name
     n = 0
@@ -13,8 +16,8 @@ def loop():
     print 'thread %s ended.' % threading.current_thread().name
 
 print 'thread %s is running...' % threading.current_thread().name
-t1 = threading.Thread(target=loop, name='LoopThread')
-t2 = threading.Thread(target=loop, name='LoopThread')
+t1 = threading.Thread(target=loop, name='LoopThread1')
+t2 = threading.Thread(target=loop, name='LoopThread2')
 t1.start()
 t2.start()
 t1.join()
