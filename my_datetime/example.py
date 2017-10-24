@@ -35,6 +35,7 @@ timespan * 2  # 还可以乘哦。代表二倍
 timespan / 13
 
 # 增加一个月
+# todo: calendar learn
 from calendar import monthrange
 start = datetime.now()
 now + timedelta(days=monthrange(start.year, start.month)[1])
