@@ -36,13 +36,13 @@ class AiChat(object):
     def suit_test(self):
         self.aidriver.open_chat_page()
         sorted_funcs = self.get_sorted_case()
-        #indices = [3,4,5,9]  #第一次测试未通过用例
+        # indices = [3,4,5,9]  #第一次测试未通过用例
         # indices = [7,8]       #第二次测试未通过用例
-        exclude_test= range(5,len(sorted_funcs)+1)    #停用什么类型证书节点可用用例
-        test_suit = [ i for j,i in enumerate(sorted_funcs,1) if j not in exclude_test]
+        exclude_test = range(5, len(sorted_funcs)+1)    # 停用什么类型证书节点可用用例
+        test_suit = [i for j, i in enumerate(sorted_funcs, 1) if j not in exclude_test]
         self.run_test(test_suit)
 
-    def run_muti_test(self,test_suit):
+    def run_muti_test(self, test_suit):
         self.aidriver.open_chat_page()
         print u'开始休眠10s'
         time.sleep(10)
@@ -51,8 +51,8 @@ class AiChat(object):
 
 if __name__ == '__main__':
     # case_num = len(AiChat.get_sorted_case())
-    case_num =3
-    chat_list=[]
+    case_num = 3
+    chat_list = []
     thread_list = []
     #todo: 各种方法，都没有同时启动来运行。是怎么回事呢？ 尝试在run_muti_test添加休眠时间
     # for i in range(case_num):
@@ -66,7 +66,7 @@ if __name__ == '__main__':
     #     thread_list[i].join()
 
 # ==========================================================
-    #先new了对象也不行。 这样的写法有问题，具体问题是怎么产生的呢？
+    # 先new了对象也不行。 这样的写法有问题，具体问题是怎么产生的呢？
     # for i in range(case_num):
     #     chat_list.append(AiChat())
     #
@@ -78,8 +78,8 @@ if __name__ == '__main__':
     #这样是可以得。
     a = AiChat()
     b = AiChat()
-    t1 = threading.Thread(target=a.main_test,name='Thread_1',args=())
-    t2 = threading.Thread(target=b.main_test,name='Thread_2',args=())
+    t1 = threading.Thread(target=a.main_test,name='Thread_1', args=())
+    t2 = threading.Thread(target=b.main_test,name='Thread_2', args=())
     t1.start()
     t2.start()
     t1.join()
