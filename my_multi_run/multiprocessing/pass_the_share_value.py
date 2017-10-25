@@ -11,8 +11,10 @@ def f(n, s, a, b, d):
         a[i] = -a[i]
     for j in range(len(b)):
         print b[j]
-    for k, v in d.items():
+    for k, v in d.items():  # 使用iteritems是错误的。
         print k, v
+    for key in d.keys():
+        print key
 
 if __name__ == '__main__':
     num = Value('d', 0.0)  # 第二个参数必须是float
@@ -29,4 +31,3 @@ if __name__ == '__main__':
     print num.value
     print str1.value
     print arr[:]
-
