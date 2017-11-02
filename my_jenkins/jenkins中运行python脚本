@@ -1,0 +1,42 @@
+### 在linux中,在jenkins窗口中运行脚本代码
+####  第一种，在Exccute shell中
+在Exccute shell中执行命令：
+```python
+#!/usr/bin/env python
+print 'hello world'
+```
+
+
+`执行结果：
+
+Started by user 干老师
+
+Building in workspace /var/lib/jenkins/workspace/test_chen
+
+[test_chen] $ /usr/bin/env python /tmp/jenkins3067225245830556860.sh
+
+hello world
+
+Finished: SUCCESS`
+
+####  第二种，在Exccute python script中直接运行python脚本
+```
+print 'hello world'
+```
+
+
+###在linux中使用python运行机器上py文件
+在Exccute shell中执行命令：
+```
+python test.py
+```
+或者
+```
+/usr/bin/python test.py
+```
+### 在安装在windows上的jenkins中，未确定。
+据说是：
+ 
+在 windows bath commond
+
+\#! python.exe
