@@ -19,9 +19,9 @@ foo()
 # 二、无参数装饰器 – 包装带参数函数 # 两个def
 
 def decorator_func_args(func):
-    def handle_args(*args, **kwargs): #处理传入函数的参数
+    def handle_args(*args, **kwargs): # 处理传入函数的参数
         print "begin"
-        func(*args, **kwargs)   #函数调用
+        func(*args, **kwargs)   # 函数调用
         print "end"
     return handle_args
 
@@ -34,7 +34,7 @@ foo2(1)
 
 
 # 三、带参数装饰器 – 包装无参数函数 # 两个def
-def decorator_with_params(arg_of_decorator):#这里是装饰器的参数
+def decorator_with_params(arg_of_decorator):  # 这里是装饰器的参数
     print arg_of_decorator
     #最终被返回的函数
     def newDecorator(func):
@@ -51,13 +51,15 @@ def foo3():
 foo3()  # 因为有()，所以就是执行函数了。因为一路从底返回的是函数的引用。
 
 # 四、带参数装饰器– 包装带参数函数 #三个def
+
+
 def decorator_whith_params_and_func_args(arg_of_decorator):
     def handle_func(func):
         def handle_args(*args, **kwargs):
             print "begin"
             func(*args, **kwargs)
             print "end"
-            print arg_of_decorator, func, args,kwargs
+            print arg_of_decorator, func, args, kwargs
         return handle_args
     return handle_func
 
