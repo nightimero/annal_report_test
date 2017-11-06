@@ -16,4 +16,4 @@ class PrintTotalTime(object):
 
 
 with PrintTotalTime() as p:
-    time.sleep(10.5)
+    time.sleep(3.5)
