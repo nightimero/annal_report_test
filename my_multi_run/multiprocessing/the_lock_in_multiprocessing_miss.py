@@ -33,6 +33,6 @@ if __name__ == '__main__':
     print "------------------------"
     print 'process id:', os.getpid()
     print _sum.value
-# todo：没加锁，在Linux中结果随机了。 但是windows中是对的。哈哈哈哈 泪。 错了，windows中也错了。概率低而已。
+# todo：没加锁，在Linux中结果随机了。丢失了一部分加的值。都是赋值导致的。 但是windows中是对的。哈哈哈哈 泪。 错了，windows中也错了。概率低而已。
 #     应该是什么问题呢？
 # 也许你会问：WTF？其实这个问题在多线程时代就存在了，只是在多进程时代又杯具重演了而已：Lock！
