@@ -66,6 +66,7 @@ def decorator_whith_params_and_func_args(arg_of_decorator):
 
 @decorator_whith_params_and_func_args("123")
 def foo4(a, b=2):
+    # assert 1==2
     print "Content"
 
 foo4(1, b=3)

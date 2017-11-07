@@ -24,6 +24,7 @@ print obj1 is obj2
 class Singleton2(object):
     # 这个位置的才是类变量。
     brand = 'IBM'
+
     def __new__(cls, computer):
         # 关键在于这，每一次实例化的时候，我们都只会返回这同一个instance对象
         print computer  # 这个computer不是类变量，也不是实例变量。传给了__init__才会成为实例变量。
@@ -47,7 +48,7 @@ class SingletonWithAttr1(object):
             cls.instance = super(SingletonWithAttr1, cls).__new__(cls, computer)
         return cls.instance
 
-    def __int__(self, computer):  # 因为ini啊。 int啊。init啊。注意啊。
+    def __int__(self, computer):  # 因为init啊。 int啊。init啊。注意啊。
         self.computer = computer
 try:  # 这里报错：object() takes no parameters
     print '===================='
