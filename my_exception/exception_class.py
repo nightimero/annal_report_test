@@ -8,5 +8,5 @@ class MyException(Exception):
 
 try:
     raise MyException(3)
-except MyException,e:
+except MyException as e:
     print e.value
