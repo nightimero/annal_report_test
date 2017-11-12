@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-# todo: http://www.cnblogs.com/dkblog/archive/2011/02/24/1980654.html super可以保证父类只调用一次。try
+# http://www.cnblogs.com/dkblog/archive/2011/02/24/1980654.html super可以保证父类只调用一次.
 from functools import wraps
 
 

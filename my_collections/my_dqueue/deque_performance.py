@@ -28,6 +28,3 @@ for i in xrange(100000):  # insert 才是罪魁祸首
     q.insert(0, i)
 
 print 'list ', time.clock() - t0
-
-
-
