@@ -2,7 +2,6 @@
 # todo: https://docs.python.org/2/library/collections.html
 # todo: http://www.cnblogs.com/herbert/p/3468294.html
 from collections import OrderedDict
-__author__ = 'shawn'
 
 
 class Point(tuple):

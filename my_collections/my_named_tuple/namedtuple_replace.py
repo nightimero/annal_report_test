@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-from collections import  namedtuple
+from collections import namedtuple
 __author__ = 'shawn'
 
 Point = namedtuple('Ponit', 'x,y')
