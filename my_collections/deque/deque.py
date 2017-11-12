@@ -26,9 +26,8 @@ from collections import deque
 
 fancy_loading = deque('>--------------------')
 
-# todo： why this？
 while True:
-    print '\r%s' % ''.join(fancy_loading),
+    print '\r%s' % ''.join(fancy_loading)
     fancy_loading.rotate(1)
     sys.stdout.flush()
     time.sleep(0.08)
