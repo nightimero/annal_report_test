@@ -19,7 +19,7 @@ import win32api
 classname = 'Notepad'
 titlename = u'无标题 - 记事本'
 
-hwnd = win32gui.FindWindow(classname,titlename)
+hwnd = win32gui.FindWindow(classname, titlename)
 '''如果有多个相同classname和titlename的窗口，只返回一个'''
 app = win32gui.GetWindowText(hwnd)
 
