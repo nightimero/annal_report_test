@@ -11,10 +11,13 @@
 
 import pandas as pd
 
-df = pd.read_csv("D:\\test1.csv", encoding='gb18030')
+# df = pd.read_csv("D:\\4.0.csv", encoding='gb18030')
+df = pd.read_csv("D:\\4.0.csv", encoding='utf-8')
+# df = pd.read_csv("D:\\3.0.csv", encoding='gb2312')
 df.drop_duplicates()
 df.dropna()
 
-s1 = df[u'用户输入'].str.replace(u'[^\u4E00-\u9FA5]','').str.len()<=3
+# s1 = df[u'用户输入'].str.replace(u'[^\u4E00-\u9FA5]','').str.len()<=3
+s1 = df[u'文本'].str.replace(u'[^\u4E00-\u9FA5]','').str.len()<=3
 df.drop(s1.where(s1 == True).dropna().index, inplace=True)  # 必须用== 不能用is。这里是where，不能迷信IDE
 df.to_csv("D:\\test2.csv", encoding='gb18030')
