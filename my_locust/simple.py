@@ -11,12 +11,12 @@ class WebsiteTasks(TaskSet):
 
     @task
     def index(self):
-        self.client.get("http://www.baidu.com")
+        self.client.get("/")
 
-    @task
-    def news(self):
-        self.client.get("http://news.baidu.com/")
-
+    # @task
+    # def news(self):
+    #     self.client.get("http://news.baidu.com/")
+#
 
 class WebsiteUser(HttpLocust):
     task_set = WebsiteTasks
