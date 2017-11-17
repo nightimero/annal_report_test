@@ -11,6 +11,7 @@ try:
     1/0
 except Exception as e:
     traceback.print_exc()
+    traceback.format_tb()
 
 #
 # traceback.print_exc()跟traceback.format_exc()有什么区别呢？
