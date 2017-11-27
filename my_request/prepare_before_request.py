@@ -6,23 +6,32 @@
 
 from requests import Request, Session
 
+url = ''
+data = ''
+header = ''
+stream = ''
+verify = ''
+proxies = ''
+cert = ''
+timeout = ''
+
 s = Session()
 req = Request('GET', url,
-    data=data,
-    headers=header
-)
+              data=data,
+              headers=header
+              )
 prepped = req.prepare()
 
 # do something with prepped.body
 # do something with prepped.headers
 
 resp = s.send(prepped,
-    stream=stream,
-    verify=verify,
-    proxies=proxies,
-    cert=cert,
-    timeout=timeout
-)
+              stream=stream,
+              verify=verify,
+              proxies=proxies,
+              cert=cert,
+              timeout=timeout
+              )
 
 print(resp.status_code)
 # 由于你没有对 Request 对象做什么特殊事情，你立即准备和修改了 PreparedRequest 对象，然后把它和别的参数一起发送到 requests.* 或者 Session.*。
@@ -33,10 +42,10 @@ print(resp.status_code)
 from requests import Request, Session
 
 s = Session()
-req = Request('GET',  url,
-    data=data
-    headers=headers
-)
+req = Request('GET', url,
+              data=data,
+              headers=header
+              )
 
 prepped = s.prepare_request(req)
 
@@ -44,11 +53,11 @@ prepped = s.prepare_request(req)
 # do something with prepped.headers
 
 resp = s.send(prepped,
-    stream=stream,
-    verify=verify,
-    proxies=proxies,
-    cert=cert,
-    timeout=timeout
-)
+              stream=stream,
+              verify=verify,
+              proxies=proxies,
+              cert=cert,
+              timeout=timeout
+              )
 
 print(resp.status_code)
