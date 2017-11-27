@@ -4,8 +4,9 @@ import time
 
 class PrintTotalTime(object):
     def __init__(self):
-        self.start_time = 0
-        self.end_time = 0
+        pass
+        # self.start_time = 0
+        # self.end_time = 0
 
     def __enter__(self):
         self.start_time = time.time()
@@ -16,4 +17,4 @@ class PrintTotalTime(object):
 
 
 with PrintTotalTime() as p:
-    time.sleep(10.5)
+    time.sleep(3.5)

@@ -8,11 +8,11 @@ class Base(object):
         (filename, line_number, function_name, text) = traceback.extract_stack()[-2]
         self.name = text[:text.find('=')].strip()
 
-    def say_Myname(self):
+    def say_myname(self):
         print self.name
 
 
 b = Base()
-b.say_Myname()
+b.say_myname()
 a = Base()
-a.say_Myname()
+a.say_myname()
