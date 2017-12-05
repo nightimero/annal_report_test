@@ -20,7 +20,7 @@
 
 class Itr(object):
     def __init__(self):
-        self.result = ['a', 'b', 'c', 'd']
+        self.result = ['a', 'b', 'c', 'd', 'e', 'f']
         self.i = iter(self.result)
 
     def __call__(self):
@@ -35,38 +35,52 @@ class Itr(object):
 
 itr = Itr()
 # i1必须是callable的，否则无法返回callable-iterator
-i1 = iter(itr, 'c')
+i1 = iter(itr, 'd')
 print("i1 = ", i1)
 # i2只需要类实现__iter__函数即可返回
 i2 = iter(itr)
 print("i2 = ", i2)
 
-for i in i1:
-    print(i)
+# for i in i1:
+#     print(i)
 
-for i in i2:
-    print(i)
+# for i in i2:
+#     print(i)
+#
+# for i in i2:
+#     print(i)
+
+list1 = iter['a', 'b', 'c', 'd', 'e', 'f']
+
+for i in list1:
+    print i
+
+for i in list1:
+    print i
 
 
-class Next(object):
-    def __init__(self, data=1):
-        self.data = data
 
-    def __iter__(self):
-        return self
 
-    def next(self):    # python2 用next。python3 用__next__
-        print("__next__ called")
-        if self.data > 5:
-            raise StopIteration
-        else:
-            self.data += 1
-            return self.data
-
-for i in Next(3):
-    print(i)
-
-bb = Next(4)
-print bb.next()  # python2 用next。python3 用__next__
-print bb.next()
-print bb.next()
+#
+# class Next(object):
+#     def __init__(self, data=1):
+#         self.data = data
+#
+#     def __iter__(self):
+#         return self
+#
+#     def next(self):    # python2 用next。python3 用__next__
+#         print("__next__ called")
+#         if self.data > 5:
+#             raise StopIteration
+#         else:
+#             self.data += 1
+#             return self.data
+#
+# for i in Next(3):
+#     print(i)
+#
+# bb = Next(4)
+# print bb.next()  # python2 用next。python3 用__next__
+# print bb.next()
+# print bb.next()

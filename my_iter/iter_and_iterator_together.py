@@ -23,6 +23,7 @@ print isinstance([], Iterable)  # True
 print isinstance([], Iterator)  # False
 print isinstance(MyRange, Iterable)  # False
 print isinstance(MyRange, Iterator)  # False
+print 'type', isinstance(MyRange, type)  # False
 print isinstance(myRange, Iterable)  # True
 print isinstance(myRange, Iterator)  # True
 
