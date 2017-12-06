@@ -4,7 +4,8 @@ from test_mathfunc import TestMathFunc, math_suite
 from mydict_test import dict_suite
 
 if __name__ == '__main__':
-    suite = unittest.TestSuite()
+    # a.直接添加
+    # suite = unittest.TestSuite((math_suite(), dict_suite()))
 
     # 一、直接addtest
     # tests = [TestMathFunc("test_add"), TestMathFunc("test_minus"), TestMathFunc("test_divide")]
@@ -19,7 +20,10 @@ if __name__ == '__main__':
     # loadTestsFromTestCase()，传入TestCase
     # suite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestMathFunc))
 
-    suite.addTest(math_suite())
-    suite.addTest(dict_suite())
+    # b.在新建一个suite后，通过addTest的方法
+    suite = unittest.TestSuite()
+    # suite.addTest(math_suite())
+    # suite.addTest(dict_suite())
+    suite.addTests((math_suite(), dict_suite()))
     runner = unittest.TextTestRunner(verbosity=2)
     runner.run(suite)
