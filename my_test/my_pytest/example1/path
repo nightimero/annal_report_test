@@ -1,0 +1,18 @@
+. test_class.py::TestClass::()::test_one
+F test_class.py::TestClass::()::test_two
+ self = <annal_report_test.my_test.my_pytest.example1.test_class.TestClass instance at 0x0000000004B7E2C8>
+ 
+     def test_two(self):
+         x = "hello"
+ >       assert hasattr(x, 'check')
+ E       AssertionError: assert False
+ E        +  where False = hasattr('hello', 'check')
+ 
+ test_class.py:16: AssertionError
+F test_sample.py::test_func
+ def test_func():
+ >       assert func(3) == 5
+ E       assert 4 == 5
+ E        +  where 4 = func(3)
+ 
+ test_sample.py:9: AssertionError
