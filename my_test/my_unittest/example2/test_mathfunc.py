@@ -50,6 +50,8 @@ class TestMathFunc(unittest.TestCase):
 
 def math_suite():
     suite = unittest.TestSuite()
+    suite.addTest(TestMathFunc('test_add'))
+    suite.addTest(TestMathFunc('test_minus'))
     suite.addTest(TestMathFunc('test_multi'))
     suite.addTest(TestMathFunc('test_divide'))
     return suite

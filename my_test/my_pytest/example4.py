@@ -49,3 +49,19 @@ class MyClass(unittest.TestCase):
 # self.addCleanup()
 
 # def set_resource()
+
+
+# py.test -k 详解
+#
+# py.test -k "method_a or method_b"
+# 测试类或函数包含 method_a 或 method_b 中的测试将被运行
+#
+# py.test -k "SomeClass and no method_a"
+# 测试类名包含 SomeClass，并且该测试类中包含 method_a 将被跳过
+#
+# 获取程序输出
+#
+# py.test -s	# = capature=no，将不捕获输出，直接打印
+
+
+# python -m nose example4 -v -s
