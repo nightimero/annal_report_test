@@ -6,6 +6,7 @@ from mathfunc import *
 
 class TestMathFunc(unittest.TestCase):
     """Test mathfuc.py"""
+
     @classmethod
     def setUpClass(cls):
         print 'before testcase exclude'
@@ -45,6 +46,14 @@ class TestMathFunc(unittest.TestCase):
         """Test method divide(a, b)"""
         self.assertEqual(2, divide(6, 3))
         self.assertEqual(2.5, divide(5, 2))
+
+
+def math_suite():
+    suite = unittest.TestSuite()
+    suite.addTest(TestMathFunc('test_multi'))
+    suite.addTest(TestMathFunc('test_divide'))
+    return suite
+
 
 if __name__ == '__main__':
     unittest.main()

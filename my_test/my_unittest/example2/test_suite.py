@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import unittest
-from test_mathfunc import TestMathFunc
+from test_mathfunc import TestMathFunc, math_suite
+from mydict_test import dict_suite
 
 if __name__ == '__main__':
     suite = unittest.TestSuite()
@@ -16,7 +17,9 @@ if __name__ == '__main__':
 
     # 三、使用TestLoader().loadTestFromTestCase
     # loadTestsFromTestCase()，传入TestCase
-    suite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestMathFunc))
+    # suite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestMathFunc))
 
+    suite.addTest(math_suite())
+    suite.addTest(dict_suite())
     runner = unittest.TextTestRunner(verbosity=2)
     runner.run(suite)
