@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import unittest
 from test_mathfunc import TestMathFunc, math_suite
-from mydict_test import dict_suite
+from test_mycit import dict_suite
 
 if __name__ == '__main__':
     # a.直接添加

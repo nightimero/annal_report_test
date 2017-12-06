@@ -57,3 +57,7 @@ def math_suite():
 
 if __name__ == '__main__':
     unittest.main()
+
+# python -m unittest -v test_mycit.TestDict
+# python -m unittest -v test_mycit.TestDict.test_key
+# python -m unittest discover -v  # 执行模块下所有test开头的测试用例。
