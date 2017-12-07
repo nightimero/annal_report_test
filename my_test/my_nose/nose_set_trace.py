@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 import unittest
 from parameterized import parameterized
-# from nose_parameterized import parameterized  # 已被重命名
 import nose
+from nose.tools import set_trace
 
 
 class TestAdd(unittest.TestCase):
@@ -11,10 +12,14 @@ class TestAdd(unittest.TestCase):
         ("name02", 2, 3, 5),
         ("name03", 3, 3, 6),
     ]
-    @parameterized.expand(test_list)
-    def test_add(self, name, a, b, c):
-        self.assertEqual(a + b, c)
 
+    # @parameterized.expand(test_list)
+    # def test_add(self, name, a, b, c):
+    #     self.assertEqual(a + b, c)
+
+    @set_trace()   # todo: 如何调试  https://www.ibm.com/developerworks/cn/linux/l-cn-pythondebugger/index.html
+    def test_add(self):
+        self.assertEqual(3+5, 8)
 
 if __name__ == '__main__':
     # unittest.main(verbosity=2)
