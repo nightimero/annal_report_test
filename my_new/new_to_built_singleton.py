@@ -73,6 +73,7 @@ try:
     print obj2
     print obj2.instance
     # todo： 这里都是一样的，好奇怪 。这里是怎么循环指向的呢？
+    # 这里是调用了类变量。obj2.instance  = SingletonWithAttr2.instance = obj1 = obj2
     print(dir(obj2))
     print(dir(obj2.instance))
     print(dir(obj2.instance.instance))
