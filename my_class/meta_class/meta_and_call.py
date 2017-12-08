@@ -2,7 +2,8 @@
 # todo: http://www.cnblogs.com/pengyusong/p/6838407.html
 # todo: https://stackoverflow.com/questions/100003/what-is-a-metaclass-in-python google 搜索 python metaclass
 # todo: https://eli.thegreenplace.net/2011/08/14/python-metaclasses-by-example   google 搜索 metaclass init call
-# todo： call in metaclass
+# todo： call in metaclass  https://www.google.com.hk/search?q=python+metaclass+call&oq=python+metaclass+call&aqs=chrome..69i57j0l5.7576j0j4&sourceid=chrome&ie=UTF-8
+# todo: https://neo1104.com/2016/11/21/python-callhan-shu-hemetaclass-guan-xi-xiang-jie/
 class SuperMeta(type):
     def __call__(metaname, clsname, baseclasses, attrs):
         print 'SuperMeta Called'
