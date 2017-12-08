@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from nose import with_setup  # optional
-from nose.tools import raises, assert_raises, nottest
+from nose.tools import raises, assert_raises, nottest, istest
 
 from unnecessary_math import multiply
 
@@ -50,6 +50,10 @@ def test_divide_by_zero():
 @nottest
 def test_divide_by_zero_2():
     assert_raises(ZeroDivisionError, divide, 2, 0)
+
+@istest
+def haha():
+    assert 4 == 5
 
 
 class TestUM:
@@ -106,3 +110,4 @@ class TestUM:
 
  # nosetests -v --with-coverage nose_setup_all_teardown_all.py
  # pip install coverage
+ # nosetests -v --with-coverage --with-html-output --html-out-file=./ result1.html nose_setup_all_teardown_al l.py
