@@ -1,0 +1,5 @@
+{
+  "fixture_params.py::test_not_2[1]": true, 
+  "fixture_params.py::test_not_2[2]": true, 
+  "fixture_params.py::test_not_2[3]": true
+}
