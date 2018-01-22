@@ -1,0 +1,9 @@
+{
+  "my_test/my_doctest/test_unnecessary_math.txt::test_unnecessary_math.txt": true, 
+  "my_test/my_pytest/example1/test_class.py::TestClass::()::test_two": true, 
+  "my_test/my_pytest/example1/test_sample.py::test_func": true, 
+  "my_test/my_unittest/example2/test_mathfunc.py::TestMathFunc::test_divide": true, 
+  "my_test/my_unittest/example2/test_suite.py::TestMathFunc::test_divide": true, 
+  "my_test/my_unittest/example3/test_widget.py::DefaultWidgetSizeTestCase::runTest": true, 
+  "my_test/my_unittest/example3/test_widget.py::WidgetResizeTestCase::runTest": true
+}
