@@ -5,9 +5,11 @@ import pytest
 @pytest.fixture()
 def before():
     print 'before test'
+    return "abc"
 
 
 def test1(before):
+    print before
     print 'func test1'
 
 
