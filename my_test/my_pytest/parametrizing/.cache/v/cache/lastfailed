@@ -1,0 +1,4 @@
+{
+  "test_computer.py::test_compute": true, 
+  "test_computer.py::test_compute[4]": true
+}
