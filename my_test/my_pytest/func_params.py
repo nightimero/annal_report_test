@@ -8,3 +8,6 @@ def test_data(request):
 def test_not_2(test_data):
     print('test_data: %s' % test_data)
     assert test_data != 2
+
+if __name__ == '__main__':
+    pytest.main('fixture_params.py')
