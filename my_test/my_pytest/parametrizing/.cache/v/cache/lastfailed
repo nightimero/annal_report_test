@@ -1,4 +1,8 @@
 {
   "test_computer.py::test_compute": true, 
-  "test_computer.py::test_compute[4]": true
+  "test_computer.py::test_compute[4]": true, 
+  "test_params_in_class.py::TestParam::()::test_x[3-4]": true, 
+  "test_params_in_class.py::test_x[3-4]": true, 
+  "test_params_in_class.py::test_y[1-1]": true, 
+  "test_params_in_class.py::test_y[2-2]": true
 }
