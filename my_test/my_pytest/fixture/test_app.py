@@ -1,13 +1,16 @@
 # -*- coding: utf-8 -*-
 import pytest
 
+
 class App(object):
     a = 1
     b = 2
 
+
 @pytest.fixture(scope='module')
 def app():
     return App()
+
 
 def test_smtp_exists(app):
     print app.a
@@ -15,6 +18,7 @@ def test_smtp_exists(app):
     print app.b
     app.b = 4
     assert app.a
+
 
 def test_smtp_exists2(app):
     print app.a
