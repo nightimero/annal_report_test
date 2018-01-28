@@ -1,3 +1,10 @@
 {
-  "fixture_params.py::test_not_2[2]": true
+  "example1/test_class.py::TestClass::()::test_two": true, 
+  "example1/test_sample.py::test_func": true, 
+  "fixture_params.py::test_not_2[2]": true, 
+  "parametrizing/test_computer.py": true, 
+  "parametrizing/test_params_in_class.py::TestParam::()::test_x[3-4]": true, 
+  "parametrizing/test_params_in_class.py::test_x[3-4]": true, 
+  "parametrizing/test_params_in_class.py::test_y[1-1]": true, 
+  "parametrizing/test_params_in_class.py::test_y[2-2]": true
 }

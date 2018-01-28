@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
+import allure
 
 
 def setup_module(module):
@@ -18,6 +19,7 @@ def teardown_function(function):
     print('\nteardown_function()')
 
 
+@allure.step('test_step')
 def test_1():
     print('-  test_1()')
 
